@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Styled Cards with Navbar</title>
+    {% load static %}
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'app/content.css' %}"> -->
+    <style>
+        /* Custom Navbar Styles */
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: radial-gradient(circle, #9250c5, #071f52);
+            width:100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* justify-content: center; */
+        }
+
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            width:100%;
+            background: linear-gradient(45deg, #5f27cd, #904e95);
+            padding: 10px 50px;
+            justify-content: space-between;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            width:100%;
+            background: linear-gradient(45deg, #5f27cd, #904e95);
+            padding-top: 10px;
+            padding-left: 0;
+            padding-right: 0;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar a {
+            color: white;
+            padding: 10px 50px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: background-color 0.3s ease;
+        }
+        .text-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: linear-gradient(rgb(177, 75, 232),rgb(12, 8, 117));
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-box h2, .text-box h3 {
+            color: #ffffff;
+            font-weight: bold;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .text-box ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .text-box li {
+            margin-left: 0;
+            padding-left: 0;
+            
+        }
+
+        .text-box p {
+            margin-top: 10px;
+        }
+
+        .navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        @keyframes sliding {
+            0% {
+                transform: translateX(0%);
+            }
+            50% {
+                transform: translateX(-50%);
+            }
+            100% {
+                transform: translateX(0%);
+            }
+        }
+
+        
+        h3{
+           color: rgb(255, 252, 252);
+        }
+         
+        h2{
+           color: rgb(255, 255, 255);
+        }
+        p{
+            color: rgb(255, 255, 255);
+        }
+        li{
+            color: rgb(255, 255, 255);
+        }
+        .content {
+            max-width: 800px; /* or any preferred width */
+            padding: 20px;
+            margin: 50px;
+            background-color: rgba(0, 0, 0, 0);  /* Slight background for visibility */
+            border-radius: 10px;  /* Rounded edges */
+            color: rgb(186, 35, 213);  /* Text color */
+            box-shadow: 0px 0px 15px rgba(187, 186, 186, 0.2);  /* Slight shadow for depth */
+        }
+       
+
+        /* Media Query for smaller screens */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+            }
+            .navbar a {
+            display: block;  /* each link takes up the full width */
+            text-align: center;  /* center the link text */
+            margin-bottom: 10px;  /* space out each link vertically */
+           
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href='/'>Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <!-- <a href="#">Chaky UsedCar</a> -->
+    </div>
+
+    <!-- About Content -->
+    <div class="content">
+        <div class="text-box">
+            <h2>How to Use</h2>
+            <ul>
+                <li><strong>1. Input your desired year:</strong> The range of year shoud be Within 1983-2020 </li>
+                <li><strong>2. Input your desired mileage:</strong> The range of mileage shoud be Within 13-42 </li>
+                <li><strong>3. Input your desired Maxpower:</strong> The range of Maxpower shoud be Within 100-400 </li>
+            </ul>
+        </div>
+
+
+        <div class="text-box">
+            <h3>Inputs for Prediction:</h3>
+            <p>Within all of the algorithms, you'll be prompted to enter three attributes of the car for which you wish to predict the price:</p>
+            <ul>
+                <li><strong>Year:</strong> The production year of the car.</li>
+                <li><strong>Max_Power:</strong> The maximum power output of the car.</li>
+                <li><strong>Mileage:</strong> The fuel consumption of the car.</li>
+            </ul>
+            <p>After entering these details, click on the "Predict" button. Shortly after, the predicted price and its explanation of the car will be displayed.</p>
+        </div>
+    </div>
+
+</body>
+
+
+</html>
+

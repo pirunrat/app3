@@ -1,0 +1,19 @@
+artifact_path: model_lr=0.0005_gm=sto_mom=0_init=xavier
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.4
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.3.0
+mlflow_version: 2.6.0
+model_uuid: a2f210dfaf69406d89a9d5e715d3492d
+run_id: d85bb99845e940278b30dc512e5b831b
+utc_time_created: '2023-10-03 04:02:37.949451'

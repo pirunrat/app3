@@ -1,0 +1,42 @@
+version: '3.9'
+services:
+  app3:
+    command: python manage.py runserver 0.0.0.0:80
+    #command: python app.py
+    # command: tail -f /dev/null
+    image: pirunrat/machine_learning:${tag}
+    # build: 
+    #   context: .
+    #   dockerfile: .Dockerfile
+    platform: linux/x86_64
+    environment:
+      - HOST=0.0.0.0
+      - PORT=80
+    env_file:
+      - .env
+    # volumes:
+    #   - ./source_code:/root/code
+    #   - ./vscode-server:/root/.vscode-server
+    
+    labels:
+      # Allow Traefik to talk with your service
+      - traefik.enable=true
+      # Tell Traefik to use port 80
+      - traefik.http.services.pirunrat-st124003.loadbalancer.server.port=80
+      # This config you domain name. By default, your subdomain is service_name-st124088
+      # If you which to change the subdomain name, you uncomment the below configuration
+      - traefik.http.routers.pirunrat-st124003.rule=Host(`st124003-pirunrat.ml2023.cs.ait.ac.th`)
+      # Below is for enable SSL.
+      - traefik.http.routers.pirunrat-st124003.tls=true
+      - traefik.http.routers.pirunrat-st124003.tls.certresolver=production
+      - traefik.http.routers.pirunrat-st124003.entrypoints=websecure
+    # This define network. You would need to keep it like this.
+    networks:
+      - default
+      - traefik_default
+
+# Keep it like this too.
+networks:
+  default:
+  traefik_default:
+    external: true

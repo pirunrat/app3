@@ -1,0 +1,130 @@
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    {% load static %}
+    <style>
+        /* Custom Navbar Styles */
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: radial-gradient(circle, #9250c5, #071f52);
+            width:100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* justify-content: center; */
+        }
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            width:100%;
+            background: linear-gradient(45deg, #5f27cd, #904e95);
+            padding: 10px 50px;
+            justify-content: space-between;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            width:100%;
+            background: linear-gradient(45deg, #5f27cd, #904e95);
+            padding-top: 10px;
+            padding-left: 0;
+            padding-right: 0;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar a {
+            color: white;
+            padding: 10px 50px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        @keyframes sliding {
+            0% {
+                transform: translateX(0%);
+            }
+            50% {
+                transform: translateX(-50%);
+            }
+            100% {
+                transform: translateX(0%);
+            }
+        }
+        .contact-content {
+            max-width: 800px; /* or any preferred width */
+            padding: 20px;
+            margin: 50px;
+            background-color: rgba(0, 0, 0, 0);  /* Slight background for visibility */
+            border-radius: 10px;  /* Rounded edges */
+            color: rgb(255, 255, 255);  /* Text color */
+            box-shadow: 0px 0px 15px rgba(187, 186, 186, 0.2);  /* Slight shadow for depth */
+        }
+
+        /* Styling for the contact items */
+        .contact-item {
+            margin: 15px 0;  /* Space between each contact item */
+        }
+         /* Media Query for smaller screens */
+         @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+            }
+            .navbar a {
+            display: block;  /* each link takes up the full width */
+            text-align: center;  /* center the link text */
+            margin-bottom: 10px;  /* space out each link vertically */
+           
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href='/'>Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+    </div>
+
+    <!-- Contact Content -->
+    <div class="contact-content">
+        <h2>Contact Information</h2>
+
+        <div class="contact-item">
+            <h3>Email</h3>
+            <p><a href="mailto:st124003@ait.asia">st124003@ait.asia</a></p>
+        </div>
+
+        <div class="contact-item">
+            <h3>Tel</h3>
+            <p>097-0653213</p>
+        </div>
+
+        <div class="contact-item">
+            <h3>Location</h3>
+            <p>CSIM Building, Asian Institute of Technology</p>
+        </div>
+    </div>
+
+</body>
+</html>
+{% endblock %}

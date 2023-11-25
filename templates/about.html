@@ -1,0 +1,144 @@
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Styled Cards with Navbar</title>
+    {% load static %}
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'app/content.css' %}"> -->
+    <style>
+        /* Custom Navbar Styles */
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: radial-gradient(circle, #9250c5, #071f52);
+            width:100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* justify-content: center; */
+        }
+
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            width:100%;
+            background: linear-gradient(45deg, #5f27cd, #904e95);
+            padding: 10px 50px;
+            justify-content: space-between;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            width:100%;
+            background: linear-gradient(45deg, #5f27cd, #904e95);
+            padding-top: 10px;
+            padding-left: 0;
+            padding-right: 0;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar a {
+            color: white;
+            padding: 10px 50px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        @keyframes sliding {
+            0% {
+                transform: translateX(0%);
+            }
+            50% {
+                transform: translateX(-50%);
+            }
+            100% {
+                transform: translateX(0%);
+            }
+        }
+
+        
+        h3{
+           color: aliceblue;
+        }
+         
+        h2{
+           color: aliceblue;
+        }
+        p{
+            color: aliceblue;
+        }
+        li{
+            color: aliceblue;
+        }
+        .about-content {
+            max-width: 800px; /* or any preferred width */
+            padding: 20px;
+            margin: 50px;
+            background-color: rgba(0, 0, 0, 0);  /* Slight background for visibility */
+            border-radius: 10px;  /* Rounded edges */
+            color: rgb(255, 255, 255);  /* Text color */
+            box-shadow: 0px 0px 15px rgba(187, 186, 186, 0.2);  /* Slight shadow for depth */
+        }
+       
+
+        /* Media Query for smaller screens */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+            }
+            .navbar a {
+            display: block;  /* each link takes up the full width */
+            text-align: center;  /* center the link text */
+            margin-bottom: 10px;  /* space out each link vertically */
+           
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href='/'>Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <!-- <a href="#">Chaky UsedCar</a> -->
+    </div>
+
+    <!-- About Content -->
+    <div class="about-content">
+        <h2>About the Car Prediction Application</h2>
+        <p>Our Car Prediction Application leverages the power of machine learning to estimate car attributes based on provided features. 
+            We utilize advanced algorithms including Multinomial Logistic Regression, Ridge Logistic Regression, and  Gaussian Naive Bayes to ensure our predictions are accurate and reliable.</p>
+
+        <h3>Data Behind The App</h3>
+        <p>The application is trained on a rich dataset of car listings collected from various sources. 
+            This data encompasses diverse car features which our models use to make predictions.</p>
+
+        <h3>Algorithms</h3>
+        <ul>
+            <li><strong>Multinomial Logistic Regression</strong>: A classification algorithm suitable for multi-class categorization.</li>
+            <li><strong>Ridge Logistic Regression</strong>: A variant of logistic regression with added regularization for better generalization.</li>
+            <li><strong>Gaussian Naive Bayes</strong>: A probabilistic algorithm based on Bayes' theorem, it's simple and fast.</li>
+        </ul>
+    </div>
+
+</body>
+
+
+</html>
+{% endblock %}

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/user/Desktop/DSAI_Coursework/Machine_Learning/Car-Prediction-Project-3/app3/app3/mlruns/0/ef5a060c524244eda29e33295f3aea9e/artifacts
+end_time: 1696154665731
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ef5a060c524244eda29e33295f3aea9e
+run_name: MultinomialRegression_lr=0.005_gm=sto_mom=0_init=zeros
+run_uuid: ef5a060c524244eda29e33295f3aea9e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1696154659477
+status: 3
+tags: []
+user_id: user
