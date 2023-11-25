@@ -11,7 +11,7 @@ import os
 class MultinomialRegressionTests(TestCase):
 
     def __init__(self, methodName: str = "runTest") -> None:
-        self.model_name = os.environ['APP_MODEL_NAME']
+        self.model_name = "st124003-a3-model"
         mlflow.set_tracking_uri("http://127.0.0.1:5000")
         self.stage = "Staging"
 
