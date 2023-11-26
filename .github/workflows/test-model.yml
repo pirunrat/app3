@@ -23,5 +23,5 @@ jobs:
       - name: Django Testing
         run: docker-compose exec -T app3 python manage.py test
   
-      - name: Transition to production
-        run: docker-compose exec -T app3 python app3/transition.py
+      # - name: Transition to production
+      #   run: docker-compose exec -T app3 python app3/transition.py

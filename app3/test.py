@@ -14,13 +14,13 @@ class MultinomialRegressionTests(TestCase):
         self.model_name = "st124003-a3-model"
         mlflow.set_tracking_uri("http://127.0.0.1:5000")
         self.stage = "Staging"
-
+        self.util = Utility()
         super().__init__(methodName)
 
     
     def setUp(self):
-        self.model = mlflow.pyfunc.load_model(model_uri=f"models:/{self.model_name}/{self.stage}")
-        #self.model = self.util.load('app3/model/model.pkl')
+        #self.model = mlflow.pyfunc.load_model(model_uri=f"models:/{self.model_name}/{self.stage}")
+        self.model = self.util.load('app3/model.pkl')
         self.X = np.array([0.1,0.2,0.3]).reshape(-1,3)
         
     
