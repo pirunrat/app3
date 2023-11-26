@@ -1,66 +1,55 @@
-# Name of this workflow
 name: Build-Test
 
-# Name of this run
 run-name: ${{ github.actor }} Building and Testing
 
-# When this action will be trigger
-# I want to do this when we push new change with tag.
-# This tag will be used next when we build and push the image to Docker Hub
 on:
   push:
     tags:
       - 'v*'
 
-# There can be multiple jobs
 jobs:
-  # Job name for testing
   test:
-    # Target machine that this job will run on.
-    # ubuntu-latest or ubuntu-22.04 is the same image (as is August 2023)
     runs-on: ubuntu-latest
-    # Tasks, specify in list.
     steps:
-      # https://github.com/actions/checkout: will clone Git into the image
-      - uses: actions/checkout@v4
-      # Execute terminal command.
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: List the contents of the repo
+        run: ls -alh
+
       - name: Build the Docker image
         run: docker-compose build
 
       - name: Compose up
         run: docker-compose up -d
 
-      # Execute Django tests or any other tests you want
       - name: Testing
         run: docker-compose exec -T app3 python manage.py test
 
-  # Job name for pushing to Docker Hub
   push:
-    # This job runs only if the 'test' job is successful
     needs: test
     runs-on: ubuntu-latest
     steps:
-      - name: Login to Docker Hub
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: List the contents of the repo
+        run: ls -alh
+
+      - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      
-      - name: Docker meta
-        id: meta
-        uses: docker/metadata-action@v5
-        with:
-          # Your image name
-          images: pirunrat/machine_learning
-          tags: type=semver,pattern={{raw}}
 
-      - name: Debug generated tag
-        run: echo "Generated Tag = ${{ steps.meta.outputs.tags }}"
+      # Removed the Buildx setup as it's not necessary for docker-compose
 
       - name: Build and push
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v2
         with:
           context: .
-          file: Dockerfile
+          file: ${{ github.workspace }}/Dockerfile
           push: true
-          tags: pirunrat/machine_learning:v1.0.0
+          tags: pirunrat/machine_learning:${{ github.ref_name }}
+          build-args: |
+            VERSION=${{ github.ref_name }}
